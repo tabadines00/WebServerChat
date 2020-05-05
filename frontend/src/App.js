@@ -1,39 +1,49 @@
 import React from 'react';
 import './App.css';
+import { Switch, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import UserPage from './pages/UserPage';
 
-const App = ({ }) => {
-  const [totalUsers, setTotalUsers] = React.useState(0);
-  const [notes, setNotes] = React.useState(['test']);
-  const [note, setNote] = React.useState('');
-
-  const handleSubmit = () => {
-    console.log(note);
-    setNote('');
-  };
-
-  React.useEffect(() => {
-    
-  }, []);
+const App = () => {
+  // the user that is use up right now
+  // && logout and login
+  const [appUser, setAppUser] = React.useState(null); //sticks until refresh or logout
 
   return (
-    <div className="App">
-      <header className="user-counter">
-        {totalUsers} : Users
-      </header>
-      <div>
-        <input value={note} onChange={e => setNote(e.target.value)} />
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-      <div className="notes">
-        {notes.map((note, i) => (
-          <div className="note-item" key={i}>
-            <div>{i}</div>
-            <div>{note}</div>
-          </div>
-        ))}
-      </div>
+    <div>
+      <nav>
+        <Link to="/"> Home |</Link>
+        {appUser  && <Link to="/logout"> Log out |</Link>}
+        {!appUser && <Link to="/login"> Log in |</Link>}
+        {!appUser && <Link to="/signup"> Sign up</Link>}
+        {appUser  && <Link to="/userpage"> User page</Link>}
+      </nav>
+      {appUser && <h2> Welcome {appUser}</h2>}
+      <Switch>
+        <Route path="/login">
+          <Login appUser={appUser} setAppUser={setAppUser}/>
+        </Route>
+        
+        <Route path="/signup">
+          <Signup appUser={appUser} setAppUser={setAppUser}/>
+        </Route>
+        
+        <Route path="/userpage">
+          <UserPage appUser={appUser} setAppUser={setAppUser}/>
+        </Route>
+        
+        <Route path="/">
+          <Home />
+        </Route>
+
+        <Route path="/logout">
+          <Home appUser={null} setAppUser={null}/>
+        </Route>
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;

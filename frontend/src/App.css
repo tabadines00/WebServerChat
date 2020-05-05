@@ -39,10 +39,15 @@
   display: flex;
   margin: 0 auto;
   margin-top: 40px;
+  flex-direction: column;
 }
 
 .note-item{
   border: 1px solid black;
   flex-grow: 1;
   display: flex;
+}
+
+.note-content{
+  flex-grow: 2;
 }
