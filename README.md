@@ -23,7 +23,7 @@
 |1|mongo db collection					|Link two MongoDB collections user and message              |Xinwei Fan |5-May|
 |2|message								      |Each message should contain the date, text, and user.      |Xinwei Fan |6-May|
 |3|"like" button							  |Can click a message to “like” it (show the count of likes) |Thomas Abadines|9-May|
-|4|login,logout, home				  	|Compelete the function of login, logout, home              |?|?|
-|5|CSS (home/login/signup/userpage) |Use bootstrap to make the app clean and beautiful      |Gian Carlo L. Baldonado|10-May|
+|4|login,logout, home				  	|Compelete the function of login, logout, home              |Thomas Abadines|10-May|
+|5|CSS (home/login/signup/userpage) |Use bootstrap to make the app clean and beautiful      |Gian Carlo L. Baldonado / Thomas Abadines|10-May|
 |6|amazon cloud							    |Can run on Amazon cloud                                    |?|?|
 |7|Presentation							    |PowerPoint & Presentation                                  |?|14-May|
