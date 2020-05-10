@@ -5,30 +5,35 @@ import { Redirect } from 'react-router-dom';
 const Signup = ({appUser, setAppUser}) => {
   const[username, setUsername] = React.useState('');
   const[password, setPassword] = React.useState('');
+  const[confirmPass, setConfirmPass] = React.useState('');
   const[error, setError]       = React.useState('');
 
   var alphanumeric = /^[a-zA-Z0-9]*$/;
   
  // body will send to axios 
   const handleAuth = () => {
-    if(sanitizeInput()) {
-      const body = {
-        username: username,
-        password: password,
-      };
-      axios.post('/api/register', body)
-        .then((res) => {
-          console.log(res.data); // dto coming from spark
-          if(res.data.success){
-            console.log('Worked!');
-            setAppUser(username); //trigger page change
-          }else{
-            setError(res.data.error);
-          }
-        })    
-        .catch(() => {
-          setError("Failed to register");
-      });
+    if(password === confirmPass) {
+      if(sanitizeInput()) {
+        const body = {
+          username: username,
+          password: password,
+        };
+        axios.post('/api/register', body)
+          .then((res) => {
+            console.log(res.data); // dto coming from spark
+            if(res.data.success){
+              console.log('Worked!');
+              setAppUser(username); //trigger page change
+            }else{
+              setError(res.data.error);
+            }
+          })    
+          .catch(() => {
+            setError("Failed to register");
+        });
+      }
+    } else {
+      setError("Failed to register, passwords do not match!");
     }
   };
 
@@ -70,7 +75,16 @@ const Signup = ({appUser, setAppUser}) => {
       </div>
 
       <div>
-        <button disabled={!username || !password} onClick={handleAuth}>Sign Up</button>
+        Confirm Password: 
+        <input
+          type="password"
+          value={confirmPass}
+          onChange = {e => setConfirmPass(e.target.value)} 
+        />
+      </div>
+
+      <div>
+        <button disabled={!username || !password || !confirmPass} onClick={handleAuth}>Sign Up</button>
       </div> 
       {error && <strong>{error}</strong>}
     </div>
