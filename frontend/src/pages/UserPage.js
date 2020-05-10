@@ -54,7 +54,7 @@ const UserPage = ({appUser, setAppUser}) => {
           <button onClick={submitNote}>Add Note</button>
         </div>
         <div>
-          <Notes notes={notes} />
+          <Notes notes={notes} appUser={appUser} />
         </div>
       </div>
     </div>
