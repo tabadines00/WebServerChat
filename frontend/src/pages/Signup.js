@@ -6,27 +6,41 @@ const Signup = ({appUser, setAppUser}) => {
   const[username, setUsername] = React.useState('');
   const[password, setPassword] = React.useState('');
   const[error, setError]       = React.useState('');
+
+  var alphanumeric = /^[a-zA-Z0-9]*$/;
   
  // body will send to axios 
   const handleAuth = () => {
-    const body = {
-      username: username,
-      password: password,
-    };
-    axios.post('/api/register', body)
-      .then((res) => {
-        console.log(res.data); // dto coming from spark
-        if(res.data.success){
-          console.log('Worked!');
-          setAppUser(username); //trigger page change
-        }else{
-          setError(res.data.error);
-        }
-      })    
-      .catch(() => {
-        setError("Failed to register");
-    });
+    if(sanitizeInput()) {
+      const body = {
+        username: username,
+        password: password,
+      };
+      axios.post('/api/register', body)
+        .then((res) => {
+          console.log(res.data); // dto coming from spark
+          if(res.data.success){
+            console.log('Worked!');
+            setAppUser(username); //trigger page change
+          }else{
+            setError(res.data.error);
+          }
+        })    
+        .catch(() => {
+          setError("Failed to register");
+      });
+    }
   };
+
+  // May use later
+  const sanitizeInput = () => {
+    if(!alphanumeric.test(username)) {
+      setError("Invalid Username! Alphanumeric characters only");
+      return false;
+    }
+    return true;
+  }
+
   // if appUser is exist, redict to userpage
   if(appUser){
     return <Redirect to="/login" />;
