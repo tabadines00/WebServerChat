@@ -16,22 +16,25 @@ const Message = ({item, appUser, fetchNotes}) => {
             };
             axios.post('/api/like', body)
             .then( () => fetchNotes() )
-            .then( () => fetchLikes() )
             .catch(console.log);
         } else {
             console.log("already liked the post!");
-        }
-    }
-
-    const fetchLikes = () => {
-        if(item.likes != null) {
-            setLikes(item.likes);
+            // If the user has liked the post, then unlike
+            console.log("Post ID: " + item.postId + ": " + item.message + " was unliked by " + appUser);
+            // Update the database
+            const body = {
+                username: appUser,
+                postId: item.postId
+            };
+            axios.post('/api/unlike', body)
+            .then( () => fetchNotes() )
+            .catch(console.log);
         }
     }
 
     React.useEffect(() => {
-        fetchLikes();
-    }, []);
+        setLikes(item.likes);
+    }, [item.likes]);
 
     return(
         <div className="notes-item" onDoubleClick={likeFunction}>

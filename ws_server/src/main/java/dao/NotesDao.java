@@ -54,16 +54,18 @@ public class NotesDao {
         // Find message if Id: post and append username to likes
         System.out.println("will add " + name + "'s like to post " + postId);
         notesCollection.updateOne(eq("postId", postId), Updates.addToSet("likes", name));
+    }
 
-//        Document newNote = new Document("note", note);
-//        notesCollection.insertOne(newNote);
-/*
-        Document newNote = new Document()
-                .append("username", name)
-                .append("note", note);
-        notesCollection.insertOne(newNote);
+    public void unlike(String name, int postId) {
+        // connect data
+        MongoDatabase db = DatabaseConnection
+                .mongoClient.getDatabase("MyDatabase_0504");
+        MongoCollection<Document> notesCollection = db.getCollection("Notes");
 
- */
+        // Find message if Id: post and append username to likes
+        System.out.println( name + " will unlike post " + postId);
+
+        notesCollection.updateOne(eq("postId", postId), Updates.pull("likes", name));
     }
 
     public NotesListDto getAllNotes() {

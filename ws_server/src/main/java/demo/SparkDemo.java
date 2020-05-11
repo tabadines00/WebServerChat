@@ -98,5 +98,15 @@ public class SparkDemo {
       return "OK";
     });
 
+    post("/api/unlike", (req, res) -> {
+      String bodyString =  req.body();
+      System.out.println("unlike: req body: " + req.body());
+      AddLikeDto likeDto = gson.fromJson(bodyString, AddLikeDto.class);
+
+      NotesDao notesDao = NotesDao.getInstance();
+      notesDao.unlike(likeDto.username, likeDto.postId);
+      return "OK";
+    });
+
     }
 }
