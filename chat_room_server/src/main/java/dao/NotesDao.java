@@ -5,7 +5,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,48 +16,35 @@ public class NotesDao {
     // step1
     private static NotesDao instance;
 
-    private NotesDao() {
-    }
+    private NotesDao() {}
 
     public void addNote(String name, String note) {
-        // connect data
         MongoDatabase db = DatabaseConnection
-                .mongoClient.getDatabase("MyDatabase_0504");
+                .mongoClient.getDatabase("MyDatabase_0511");
         MongoCollection<Document> notesCollection = db.getCollection("Notes");
 
-//        Document newNote = new Document("note", note);
-//        notesCollection.insertOne(newNote);
+        // Generate date and time
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd HH:mm:ss");
+        String time = formatter.format(date);
 
         Document newNote = new Document()
                 .append("username", name)
-                .append("note", note);
+                .append("note", note)
+                .append("date", time);
         notesCollection.insertOne(newNote);
     }
 
     public NotesListDto getAllNotes() {
         MongoDatabase db = DatabaseConnection
-                .mongoClient.getDatabase("MyDatabase_0504");
+                .mongoClient.getDatabase("MyDatabase_0511");
         MongoCollection<Document> notesCollection = db.getCollection("Notes");
         List<String> notes = notesCollection.find().into(new ArrayList<>())
-//                .stream()
-//                .map(document -> {
-//                    return document.getString("note");
-//                })
-//                .collect(Collectors.toList());
-//        return new NotesListDto(notes);
-
-
                 .stream()
                 .map(document -> {
-//                    System.out.println("document: "+ document);
-//                    System.out.println("document-user: "+ document.getString("username"));
-//                    System.out.println("document-note: "+ document.getString("note"));
-                    return document.getString("username") + ": " + document.getString("note");
+                    return document.getString("username") + " (" + document.getString("date") + "): " + document.getString("note");
                 })
                 .collect(Collectors.toList());
-
-        System.out.println("Notes list:" + notes);
-
         return new NotesListDto(notes);
     }
 

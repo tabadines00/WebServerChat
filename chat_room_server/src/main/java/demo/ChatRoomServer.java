@@ -8,11 +8,12 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dao.NotesDao;
 import org.bson.Document;
+import java.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SparkDemo {
+public class ChatRoomServer {
   public static void main(String[] args) {
 
     MongoClient mongoClient = new MongoClient("localhost", 27017);
