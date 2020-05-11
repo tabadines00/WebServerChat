@@ -88,5 +88,15 @@ public class SparkDemo {
       return gson.toJson(list);
     });
 
+    post("/api/like", (req, res) -> {
+      String bodyString =  req.body();
+      System.out.println("add like: req body: " + req.body());
+      AddLikeDto likeDto = gson.fromJson(bodyString, AddLikeDto.class);
+
+      NotesDao notesDao = NotesDao.getInstance();
+      notesDao.addLike(likeDto.username, likeDto.postId);
+      return "OK";
+    });
+
     }
 }
