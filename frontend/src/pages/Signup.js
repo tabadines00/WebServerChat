@@ -36,7 +36,7 @@ const Signup = ({appUser, setAppUser}) => {
  // if error is not empty or null, print Error variable
  // disbled: input name and pass, then you can submit
   return (
-    <div>
+    <div className="container">
       <h1>Signup Page</h1>
       <div>
         Username:

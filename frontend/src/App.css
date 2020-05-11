@@ -1,53 +1,28 @@
-.App {
-  text-align: center;
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
+.form-signin input[type="username"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.App-link {
-  color: #09d3ac;
-}
-
-.clicker{
-  width:200px;
-  height: 200px;
-  font-size: 24px;
-}
-
-.user-counter{
-  padding: 5px;
-  background: black;
-  color: white;
-  margin-bottom: 50px;
-}
-
-.notes{
-  width:600px;
-  display: flex;
-  margin: 0 auto;
-  margin-top: 40px;
-  flex-direction: column;
-}
-
-.note-item{
-  border: 1px solid black;
-  flex-grow: 1;
-  display: flex;
-}
-
-.note-content{
-  flex-grow: 2;
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: .25rem;
 }
