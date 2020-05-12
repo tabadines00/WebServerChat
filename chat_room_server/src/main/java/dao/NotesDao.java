@@ -89,7 +89,6 @@ public class NotesDao {
                     return new MessageDto(document.getInteger("postId"), document.getString("username"), document.getString("note"), document.getString("date"), likesList);
                 })
                 .collect(Collectors.toList());
-      
         return new NotesListDto(notes);
     }
 

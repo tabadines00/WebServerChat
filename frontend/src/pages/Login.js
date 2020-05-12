@@ -51,28 +51,39 @@ const Login = ({appUser, setAppUser}) => {
  // if error is not empty or null, print Error variable
  // disbled: input name and pass, then you can submit
   return (
-    <div>
-      <h1>Login</h1>
-      <div>
-        <input
+    <body class="text-center">
+    <form class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input 
+          type="username"
+          id="inputUsername"
+          class="form-control"
+          placeholder="Username"
+          required autofocus
           value={username}
           onChange = {e => setUsername(e.target.value)} 
         />
-      </div>
 
-      <div>
+      <label for="inputPassword" class="sr-only">Password</label>
         <input
           type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Password"
+          required
           value={password}
           onChange = {e => setPassword(e.target.value)} 
         />
-      </div>
-
-      <div>
-        <button disabled={!username || !password} onClick={handleAuth}>Login</button>
-      </div> 
+      <button class="btn btn-lg btn-primary btn-block"
+      type="Submit"
+      disabled={!username || !password} onClick={handleAuth}>Sign in</button>
+       
       {error && <strong>{error}</strong>}
-    </div>
+      <p class="mt-5 mb-3 text-muted">(c) Homebrewers 2020</p>
+      
+    </form>
+    </body>
   );
 };
 

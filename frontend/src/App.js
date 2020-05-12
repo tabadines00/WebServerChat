@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Signup from './pages/Signup';
 import UserPage from './pages/UserPage';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const App = () => {
   // the user that is use up right now
@@ -14,14 +15,26 @@ const App = () => {
 
   return (
     <div>
-      <nav>
-        <Link to="/"> Home |</Link>
-        {appUser  && <Link to="/logout"> Log out |</Link>}
-        {!appUser && <Link to="/login"> Log in |</Link>}
-        {!appUser && <Link to="/signup"> Sign up</Link>}
-        {appUser  && <Link to="/userpage"> User page</Link>}
-      </nav>
-      {appUser && <h2> Welcome {appUser}</h2>}
+      <Navbar bg="dark" expand="lg" className="m-3 d-flex justify-content-center">
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav>
+            
+            <Link className="d-inline p-2 bg-dark text-white"
+            to="/"> Home </Link>
+            {appUser  && <Link className="d-inline p-2 bg-dark text-white"
+            to="/logout"> Log out </Link>}
+            {!appUser && <Link className="d-inline p-2 bg-dark text-white"
+            to="/login"> Log in </Link>}
+            {!appUser && <Link className="d-inline p-2 bg-dark text-white"
+            to="/signup"> Sign up</Link>}
+            {appUser  && <Link className="d-inline p-2 bg-dark text-white"
+            to="/userpage"> User page</Link>}
+            
+            </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+      {appUser && <h2 className="m-3 d-flex justify-content-center"> Welcome {appUser}</h2>}
       <Switch>
         <Route path="/login">
           <Login appUser={appUser} setAppUser={setAppUser}/>

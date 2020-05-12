@@ -42,7 +42,7 @@ const UserPage = ({appUser, setAppUser}) => {
   }
   // jsx
   return (
-    <div>
+    <div className="container">
       <h1>User page</h1>
       <div>
         <div>

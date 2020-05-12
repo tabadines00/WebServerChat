@@ -4,7 +4,7 @@ import Message from './Message';
 const Notes = ({notes, appUser, fetchNotes}) => { // step 2 declare component
     //Notes specific logic in here
     return(
-        <div className="notes-list">
+        <div className='container'>
             {notes.map((item) => {
               return (<Message item={item} key={item.postId} appUser={appUser} fetchNotes={fetchNotes} />);
             })}
