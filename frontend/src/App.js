@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import Signup from './pages/Signup';
 import UserPage from './pages/UserPage';
 import { Navbar, Nav } from 'react-bootstrap';
@@ -38,6 +39,10 @@ const App = () => {
         <Route path="/login">
           <Login appUser={appUser} setAppUser={setAppUser}/>
         </Route>
+
+        <Route path="/logout">
+          <Logout appUser={appUser} setAppUser={setAppUser}/>
+        </Route>
         
         <Route path="/signup">
           <Signup appUser={appUser} setAppUser={setAppUser}/>
@@ -49,10 +54,6 @@ const App = () => {
         
         <Route path="/">
           <Home />
-        </Route>
-
-        <Route path="/logout">
-          <Home appUser={null} setAppUser={null}/>
         </Route>
       </Switch>
     </div>

@@ -8,15 +8,16 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dao.NotesDao;
 import org.bson.Document;
+import java.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SparkDemo {
+public class ChatRoomServer {
   public static void main(String[] args) {
 
     MongoClient mongoClient = new MongoClient("localhost", 27017);
-    MongoDatabase db = mongoClient.getDatabase("MyDatabase_0504");
+    MongoDatabase db = mongoClient.getDatabase("MyDatabase_0511");
     MongoCollection<Document> userCollection = db.getCollection("Users");
 
     // Gson
@@ -88,5 +89,24 @@ public class SparkDemo {
       return gson.toJson(list);
     });
 
+    post("/api/like", (req, res) -> {
+      String bodyString =  req.body();
+      System.out.println("add like: req body: " + req.body());
+      AddLikeDto likeDto = gson.fromJson(bodyString, AddLikeDto.class);
+
+      NotesDao notesDao = NotesDao.getInstance();
+      notesDao.addLike(likeDto.username, likeDto.postId);
+      return "OK";
+    });
+
+    post("/api/unlike", (req, res) -> {
+      String bodyString =  req.body();
+      System.out.println("unlike: req body: " + req.body());
+      AddLikeDto likeDto = gson.fromJson(bodyString, AddLikeDto.class);
+
+      NotesDao notesDao = NotesDao.getInstance();
+      notesDao.unlike(likeDto.username, likeDto.postId);
+      return "OK";
+    });
     }
 }

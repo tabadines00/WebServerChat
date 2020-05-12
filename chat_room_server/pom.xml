@@ -67,7 +67,7 @@
             <configuration>
               <archive>
                 <manifest>
-                  <mainClass>demo.SparkDemo</mainClass>
+                  <mainClass>demo.ChatRoomServer</mainClass>
                 </manifest>
               </archive>
               <descriptorRefs>
