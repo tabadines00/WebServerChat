@@ -12,7 +12,7 @@ import org.bson.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SparkDemo {
+public class ChatRoomServer {
   public static void main(String[] args) {
 
     MongoClient mongoClient = new MongoClient("localhost", 27017);
