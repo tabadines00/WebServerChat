@@ -6,8 +6,7 @@ import { Redirect } from 'react-router-dom';
 const UserPage = ({appUser, setAppUser}) => {
   // pass in default value into useState
   const [note, setNote] = React.useState(''); // create a state variable + setter
-  const [notes, setNotes] = React.useState([ ]); // if map of undefined 
-  const [username, setName] = React.useState('');
+  const [notes, setNotes] = React.useState([ ]); // if map of undefined
 
   const fetchNotes = () => {
     // utility to get all notes
@@ -27,7 +26,6 @@ const UserPage = ({appUser, setAppUser}) => {
       username: appUser, 
     };
     axios.post('/api/addNote', body)
-      .then( ()=> setName('')) // ivy: not sure
       .then( () => setNote(''))
       .then( () => fetchNotes()) // fetch after submit
       .catch(console.log);
@@ -54,7 +52,7 @@ const UserPage = ({appUser, setAppUser}) => {
           <button onClick={submitNote}>Add Note</button>
         </div>
         <div>
-          <Notes notes={notes} />
+          <Notes notes={notes} appUser={appUser} fetchNotes={fetchNotes} />
         </div>
       </div>
     </div>
