@@ -51,39 +51,39 @@ const Login = ({appUser, setAppUser}) => {
  // if error is not empty or null, print Error variable
  // disbled: input name and pass, then you can submit
   return (
-    <body class="text-center">
-    <form class="form-signin">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputUsername" class="sr-only">Username</label>
+    <div className="text-center">
+    <form className="form-signin">
+      <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input 
           type="username"
           id="inputUsername"
-          class="form-control"
+          className="form-control"
           placeholder="Username"
-          required autofocus
+          required autoFocus
           value={username}
           onChange = {e => setUsername(e.target.value)} 
         />
 
-      <label for="inputPassword" class="sr-only">Password</label>
+      <label htmlFor="inputPassword" className="sr-only">Password</label>
         <input
           type="password"
           id="inputPassword"
-          class="form-control"
+          className="form-control"
           placeholder="Password"
           required
           value={password}
           onChange = {e => setPassword(e.target.value)} 
         />
-      <button class="btn btn-lg btn-primary btn-block"
+      <button className="btn btn-lg btn-primary btn-block"
       type="Submit"
       disabled={!username || !password} onClick={handleAuth}>Sign in</button>
        
       {error && <strong>{error}</strong>}
-      <p class="mt-5 mb-3 text-muted">(c) Homebrewers 2020</p>
+      <p className="mt-5 mb-3 text-muted">(c) Homebrewers 2020</p>
       
     </form>
-    </body>
+    </div>
   );
 };
 
