@@ -52,7 +52,7 @@ const Login = ({appUser, setAppUser}) => {
  // disbled: input name and pass, then you can submit
   return (
     <div className="text-center">
-    <form className="form-signin">
+    <div className="form-signin">
       <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input 
@@ -82,7 +82,7 @@ const Login = ({appUser, setAppUser}) => {
       {error && <strong>{error}</strong>}
       <p className="mt-5 mb-3 text-muted">(c) Homebrewers 2020</p>
       
-    </form>
+    </div>
     </div>
   );
 };
