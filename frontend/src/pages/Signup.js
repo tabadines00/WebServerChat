@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Signup = ({appUser, setAppUser}) => {
   const[username, setUsername] = React.useState('');
@@ -87,6 +87,7 @@ const Signup = ({appUser, setAppUser}) => {
         <button disabled={!username || !password || !confirmPass} onClick={handleAuth}>Sign Up</button>
       </div> 
       {error && <strong>{error}</strong>}
+      <Link to="/login">Already have an account?</Link>
     </div>
   );
 };
