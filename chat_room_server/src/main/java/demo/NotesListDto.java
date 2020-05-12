@@ -7,8 +7,6 @@ public class NotesListDto {
     public NotesListDto(List <MessageDto> notes){
         this.notes = notes;
     }
-
-
 }
 
 

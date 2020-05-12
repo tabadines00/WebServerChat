@@ -11,10 +11,14 @@ import com.mongodb.client.result.*;
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Updates.*;
 
-import org.bson.Document;
-
 import java.util.ArrayList;
 import java.util.Random;
+
+import org.bson.Document;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,16 +35,20 @@ public class NotesDao {
         Random rand = new Random();
         int postId = rand.nextInt(1000000);
         MongoDatabase db = DatabaseConnection
-                .mongoClient.getDatabase("MyDatabase_0504");
+                .mongoClient.getDatabase("MyDatabase_0511");
         MongoCollection<Document> notesCollection = db.getCollection("Notes");
 
-//        Document newNote = new Document("note", note);
-//        notesCollection.insertOne(newNote);
+        // Generate date and time
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd HH:mm:ss");
+        String time = formatter.format(date);
+      
         List<String> likesList = new ArrayList<String>();
         Document newNote = new Document()
                 .append("postId", postId)
                 .append("username", name)
                 .append("note", note)
+                .append("date", time)
                 .append("likes", likesList);
         notesCollection.insertOne(newNote);
     }
@@ -48,7 +56,7 @@ public class NotesDao {
     public void addLike(String name, int postId) {
         // connect data
         MongoDatabase db = DatabaseConnection
-                .mongoClient.getDatabase("MyDatabase_0504");
+                .mongoClient.getDatabase("MyDatabase_0511");
         MongoCollection<Document> notesCollection = db.getCollection("Notes");
 
         // Find message if Id: post and append username to likes
@@ -59,7 +67,7 @@ public class NotesDao {
     public void unlike(String name, int postId) {
         // connect data
         MongoDatabase db = DatabaseConnection
-                .mongoClient.getDatabase("MyDatabase_0504");
+                .mongoClient.getDatabase("MyDatabase_0511");
         MongoCollection<Document> notesCollection = db.getCollection("Notes");
 
         // Find message if Id: post and append username to likes
@@ -70,31 +78,18 @@ public class NotesDao {
 
     public NotesListDto getAllNotes() {
         MongoDatabase db = DatabaseConnection
-                .mongoClient.getDatabase("MyDatabase_0504");
+                .mongoClient.getDatabase("MyDatabase_0511");
         MongoCollection<Document> notesCollection = db.getCollection("Notes");
         List<MessageDto> notes = notesCollection.find().into(new ArrayList<>())
-//                .stream()
-//                .map(document -> {
-//                    return document.getString("note");
-//                })
-//                .collect(Collectors.toList());
-//        return new NotesListDto(notes);
-
-
                 .stream()
                 .map(document -> {
-//                    System.out.println("document: "+ document);
-//                    System.out.println("document-user: "+ document.getString("username"));
-//                    System.out.println("document-note: "+ document.getString("note"));
                     //BasicDBList likesDBList = (BasicDBList) document.get("likes");
 
                     List<String> likesList = (List<String>) document.get("likes");
-                    return new MessageDto(document.getInteger("postId"), document.getString("username"), document.getString("note"), likesList);
+                    return new MessageDto(document.getInteger("postId"), document.getString("username"), document.getString("note"), document.getString("date"), likesList);
                 })
                 .collect(Collectors.toList());
-
-        //System.out.println("Notes list:" + notes);
-
+      
         return new NotesListDto(notes);
     }
 
