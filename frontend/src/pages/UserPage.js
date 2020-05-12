@@ -43,6 +43,7 @@ const UserPage = ({appUser, setAppUser}) => {
   // jsx
   return (
     <div className="container">
+      {appUser && <h2 className="m-3 d-flex justify-content-center"> Welcome {appUser}</h2>}
       <h1>User page</h1>
       <div>
         <div>

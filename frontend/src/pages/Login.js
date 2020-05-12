@@ -42,6 +42,14 @@ const Login = ({appUser, setAppUser}) => {
     return true;
   }
 
+  const buttonStyle = () => {
+    if (!username || !password) {
+      return ("");
+    } else {
+      return ("btnHover");
+    }
+  }
+
   // if appUser is exist, redict to userpage
   if(appUser){
     return <Redirect to="/userpage"/>;
@@ -75,7 +83,7 @@ const Login = ({appUser, setAppUser}) => {
           value={password}
           onChange = {e => setPassword(e.target.value)} 
         />
-      <button className="btn btn-lg btn-primary btn-block"
+      <button className={"btn btn-lg btn-primary btn-block " + buttonStyle()}
       type="Submit"
       disabled={!username || !password} onClick={handleAuth}>Sign in</button>
        

@@ -7,6 +7,7 @@ import Logout from './pages/Logout';
 import Signup from './pages/Signup';
 import UserPage from './pages/UserPage';
 import { Navbar, Nav } from 'react-bootstrap';
+import Logo from './logo.svg';
 
 const App = () => {
   // the user that is use up right now
@@ -15,9 +16,22 @@ const App = () => {
 
   return (
     <div>
-      <Navbar bg="dark" expand="lg" className="m-3 d-flex justify-content-center">
+      <Navbar bg="dark" expand="lg" className="m-3 d-flex justify-content-left">
+            <Navbar.Brand>
+              <Link to="/">
+                <img
+                  src={Logo}
+                  width="35"
+                  height="35"
+                  className="d-inline-block align-top"
+                  alt="logo"
+                />
+              </Link>
+            </Navbar.Brand>
+
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
+
             <Nav>
             
             <Link className="d-inline p-2 bg-dark text-white"
@@ -34,7 +48,6 @@ const App = () => {
             </Nav>
             </Navbar.Collapse>
         </Navbar>
-      {appUser && <h2 className="m-3 d-flex justify-content-center"> Welcome {appUser}</h2>}
       <Switch>
         <Route path="/login">
           <Login appUser={appUser} setAppUser={setAppUser}/>
@@ -53,7 +66,7 @@ const App = () => {
         </Route>
         
         <Route path="/">
-          <Home />
+          <Home appUser={appUser} setAppUser={setAppUser} />
         </Route>
       </Switch>
     </div>
