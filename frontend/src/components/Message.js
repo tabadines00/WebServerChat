@@ -39,6 +39,7 @@ const Message = ({item, appUser, fetchNotes}) => {
     return(
         <div className="notes-item" onDoubleClick={likeFunction}>
             <div className="item-username">{item.username}</div>
+            <div className="item-date">{item.date}</div>
             <p className="item-message">{item.message}</p>
             {(likes.length > 0) && <p style={{float: "right", margin: 0}}>{likes.length + "❤️"}</p>}
         </div>
