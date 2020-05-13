@@ -15,8 +15,8 @@ const App = () => {
   const [appUser, setAppUser] = React.useState(null); //sticks until refresh or logout
 
   return (
-    <div>
-      <Navbar bg="dark" expand="lg" className="m-3 d-flex justify-content-left">
+    <div className="App">
+      <Navbar bg="dark" expand="lg" className="navbar-dark m-3 d-flex justify-content-left">
             <Navbar.Brand>
               <Link to="/">
                 <img

@@ -15,6 +15,7 @@ const Home = ({appUser}) => {
         {!appUser && <Link className="signup-button btnHover" to="/signup">Sign Up</Link>}
         {appUser && <Link className="signup-button btnHover" to="/userpage">Chat Now</Link>}
       </div>
+      <div className="bigLogo" />
     </div>
   );
 };

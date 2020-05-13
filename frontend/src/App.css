@@ -1,3 +1,7 @@
+body, html {
+  height: 100%;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -41,4 +45,17 @@
   -webkit-box-shadow: -9px 6px 60px -19px rgba(0,0,0,0.67);
   -moz-box-shadow: -9px 6px 60px -19px rgba(0,0,0,0.67);
   box-shadow: -9px 6px 60px -19px rgba(0,0,0,0.67);
+}
+
+.bigLogo {
+  display: block;
+  transform: translate(40vw, -15vh);
+  width: 50vh;
+  height: 50vh;
+  background: url(logo.svg);
+  background-size: cover;
+}
+
+.App {
+  height: 100vh;
 }
