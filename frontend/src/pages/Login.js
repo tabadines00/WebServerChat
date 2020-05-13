@@ -76,7 +76,7 @@ const Login = ({appUser, setAppUser}) => {
       <label htmlFor="inputPassword" className="sr-only">Password</label>
         <input
           type="password"
-          id="inputPassword"
+          id="inputConfirmPassword"
           className="form-control"
           placeholder="Password"
           required

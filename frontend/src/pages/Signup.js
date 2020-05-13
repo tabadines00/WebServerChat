@@ -33,7 +33,7 @@ const Signup = ({appUser, setAppUser}) => {
         });
       }
     } else {
-      setError("Failed to register, passwords do not match!");
+      setError("Failed. Passwords do not match!");
     }
   };
 
@@ -46,49 +46,73 @@ const Signup = ({appUser, setAppUser}) => {
     return true;
   }
 
+  const buttonStyle = () => {
+    if (!username || !password) {
+      return ("");
+    } else {
+      return ("btnHover");
+    }
+  }
+
   // if appUser is exist, redict to userpage
   if(appUser){
     return <Redirect to="/login" />;
   }
+
+
   
  // e: event object once you click the bottom
  // if error is not empty or null, print Error variable
  // disbled: input name and pass, then you can submit
   return (
-    <div className="container">
-      <h1>Signup Page</h1>
-      <div>
-        Username:
+    <div className="text-center">
+    <div className="form-signin">
+    <h1 className="h3 mb-3 font-weight-normal"> Please sign up</h1>
+      <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input
+          type="username"
+          id="inputUsername"
+          className="form-control"
+          placeholder="Username"
+          required autoFocus
           value={username}
           onChange = {e => setUsername(e.target.value)} 
-        />
-      </div>
-
-      <div>
-        Password: 
+          />
+      <label htmlFor="inputPassword" className="sr-only">Password</label>
         <input
           type="password"
+          id="inputPassword"
+          className="form-control"
+          placeholder="Password"
+          required
           value={password}
           onChange = {e => setPassword(e.target.value)} 
         />
-      </div>
+      
 
-      <div>
-        Confirm Password: 
+      <label htmlFor="inputPassword" className="sr-only">Confirm Password</label>
         <input
           type="password"
+          id="inputConfirmPassword"
+          className="form-control"
+          placeholder="Confirm Password"
+          required
           value={confirmPass}
           onChange = {e => setConfirmPass(e.target.value)} 
         />
-      </div>
+        
 
-      <div>
-        <button disabled={!username || !password || !confirmPass} onClick={handleAuth}>Sign Up</button>
-      </div> 
-      {error && <strong>{error}</strong>}
-      <Link to="/login">Already have an account?</Link>
+      <button className={"btn btn-lg btn-primary btn-block " + buttonStyle()}
+      type="Submit" 
+      disabled={!username || !password || !confirmPass} onClick={handleAuth}> Sign Up</button>
+
+      <div> 
+      {error && <strong>{error}</strong>}</div>
+      <Link to="/login">Already have an account?</Link> 
+  
+      </div>
     </div>
+    
   );
 };
 
