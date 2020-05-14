@@ -48,20 +48,20 @@ body, html {
 }
 
 .btnHover:hover {
+  transition-duration: 1;
   color: white;
-
-  -webkit-box-shadow: -9px 6px 60px -19px rgba(0,0,0,0.67);
-  -moz-box-shadow: -9px 6px 60px -19px rgba(0,0,0,0.67);
-  box-shadow: -9px 6px 60px -19px rgba(0,0,0,0.67);
+  border-color: white;
+  background: linear-gradient(77deg, rgba(20,149,255,1) 0%, rgba(3,255,215,1) 100%);
 }
 
 .bigLogo {
   display: block;
-  transform: translate(40vw, -15vh);
+  transform: translate(40vw, -14vh);
   width: 50vh;
   height: 50vh;
   background: url(logo.svg);
   background-size: cover;
+
 }
 
 .App {
@@ -97,6 +97,8 @@ strong {
 .send-button:hover{
   color: white;
   background-color: rgb(0, 140, 255);
+  background: linear-gradient(77deg, rgba(20,149,255,1) 0%, rgba(3,255,215,1) 100%);
+  transition-duration: 0.4;
 }
 
 .notes-container {
@@ -111,6 +113,7 @@ strong {
 
 .item-username {
   color: rgb(0, 140, 255);
+  color: linear-gradient(77deg, rgba(20,149,255,1) 0%, rgba(3,255,215,1) 100%);
   font-size: medium;
   padding-left: 1rem;
   padding-top: 0.5rem;
@@ -143,4 +146,14 @@ strong {
 .liked, .unliked {
   padding-bottom: 0rem;
 
+}
+
+.jumbotron {
+  color: white;
+  background: rgb(20,149,255);
+  background: linear-gradient(77deg, rgba(20,149,255,1) 0%, rgba(3,255,215,1) 100%);
+}
+
+.grad {
+  background: linear-gradient(77deg, rgba(20,149,255,1) 0%, rgba(3,255,215,1) 100%);
 }
