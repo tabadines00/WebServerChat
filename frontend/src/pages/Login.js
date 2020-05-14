@@ -42,6 +42,12 @@ const Login = ({appUser, setAppUser}) => {
     return true;
   }
 
+  const keyPressed = (event) => {
+    if (event.key === "Enter") {
+      handleAuth();
+    }
+  }
+
   const buttonStyle = () => {
     if (!username || !password) {
       return ("");
@@ -70,6 +76,7 @@ const Login = ({appUser, setAppUser}) => {
           placeholder="Username"
           required autoFocus
           value={username}
+          onKeyPress={keyPressed}
           onChange = {e => setUsername(e.target.value)} 
         />
 
@@ -81,6 +88,7 @@ const Login = ({appUser, setAppUser}) => {
           placeholder="Password"
           required
           value={password}
+          onKeyPress={keyPressed}
           onChange = {e => setPassword(e.target.value)} 
         />
       <button className={"btn btn-lg btn-primary btn-block " + buttonStyle()}

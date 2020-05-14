@@ -7,6 +7,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dao.NotesDao;
+import db.DatabaseConnection;
 import org.bson.Document;
 import java.util.*;
 
@@ -16,7 +17,9 @@ import java.util.List;
 public class ChatRoomServer {
   public static void main(String[] args) {
 
-    MongoClient mongoClient = new MongoClient("localhost", 27017);
+    // open connection
+    MongoClient mongoClient = DatabaseConnection.getInstance();
+
     MongoDatabase db = mongoClient.getDatabase("MyDatabase_0511");
     MongoCollection<Document> userCollection = db.getCollection("Users");
 
