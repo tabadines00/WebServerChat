@@ -19,17 +19,19 @@ const UserPage = ({appUser, setAppUser}) => {
   };
 
   const submitNote = () => { // arrow/lambda function\
-    console.log("user: " + appUser)
-    console.log("note: " + note)
-    const body = {
-      note: note,
-      username: appUser, 
-    };
-    axios.post('/api/addNote', body)
-      .then( () => setNote(''))
-      .then( () => fetchNotes()) // fetch after submit
-      .catch(console.log);
-    document.getElementById("bottomPage").scrollIntoView();
+    if(note != '') {
+      console.log("user: " + appUser)
+      console.log("note: " + note)
+      const body = {
+        note: note,
+        username: appUser, 
+      };
+      axios.post('/api/addNote', body)
+        .then( () => setNote(''))
+        .then( () => fetchNotes()) // fetch after submit
+        .catch(console.log);
+      document.getElementById("bottomPage").scrollIntoView();
+    }
   };
 
   const keyPressed = (event) => {

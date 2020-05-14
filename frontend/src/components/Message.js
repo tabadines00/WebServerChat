@@ -41,7 +41,7 @@ const Message = ({item, appUser, fetchNotes}) => {
             <div className="item-username">{item.username}</div>
             <div className="item-date">{item.date}</div>
             <span className="item-message">{item.message}
-            {(likes.length > 0) && <p style={{float: "right", margin: 0}}>{likes.length + "❤️"}</p>}
+            {(likes.length > 0) && <p className="like" style={{float: "right", margin: 0}}>{likes.length + "❤️"}</p>}
             </span>
         </div>
     );
