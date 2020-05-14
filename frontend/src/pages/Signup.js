@@ -46,6 +46,12 @@ const Signup = ({appUser, setAppUser}) => {
     return true;
   }
 
+  const keyPressed = (event) => {
+    if (event.key === "Enter") {
+      handleAuth();
+    }
+  }
+
   const buttonStyle = () => {
     if (!username || !password) {
       return ("");
@@ -76,6 +82,7 @@ const Signup = ({appUser, setAppUser}) => {
           placeholder="Username"
           required autoFocus
           value={username}
+          onKeyPress={keyPressed}
           onChange = {e => setUsername(e.target.value)} 
           />
       <label htmlFor="inputPassword" className="sr-only">Password</label>
@@ -86,6 +93,7 @@ const Signup = ({appUser, setAppUser}) => {
           placeholder="Password"
           required
           value={password}
+          onKeyPress={keyPressed}
           onChange = {e => setPassword(e.target.value)} 
         />
       
@@ -98,6 +106,7 @@ const Signup = ({appUser, setAppUser}) => {
           placeholder="Confirm Password"
           required
           value={confirmPass}
+          onKeyPress={keyPressed}
           onChange = {e => setConfirmPass(e.target.value)} 
         />
         
