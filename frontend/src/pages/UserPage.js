@@ -19,7 +19,7 @@ const UserPage = ({appUser, setAppUser}) => {
   };
 
   const submitNote = () => { // arrow/lambda function\
-    if(note != '') {
+    if(note !== '') {
       console.log("user: " + appUser)
       console.log("note: " + note)
       const body = {
