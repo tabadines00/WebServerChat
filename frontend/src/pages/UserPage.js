@@ -43,7 +43,7 @@ const UserPage = ({appUser, setAppUser}) => {
   // jsx
   return (
     <div className="notes-container">
-      {appUser && <h1 className="m-3 d-flex justify-content-left"> Welcome {appUser}</h1>}
+      
       <div>
         <div>
           <Notes notes={notes} appUser={appUser} fetchNotes={fetchNotes} />

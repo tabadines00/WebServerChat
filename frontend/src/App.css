@@ -74,18 +74,18 @@ strong {
 }
 
 .footer {
-  position: -webkit-sticky;
   position: sticky;
-  bottom: 0px;
+  position: -webkit-sticky;
+  top: 0;
   width: 100vw;
   
-
 }
 
 .send-button {
   color: rgb(0, 140, 255);
   padding: 0.75em 1.25em;
   background-color: white;
+  border-radius: 5px;
   transition-duration: 0.4;
   width: 15%;
   border-top-left-radius: 0;
@@ -100,12 +100,44 @@ strong {
 }
 
 .notes-container {
-  width: 100vw;
+  border-bottom: 1px solid lightgray;
+  
 }
 
 .inputNote {
   padding: 0.75em 1.25em;
   width: 85%;
-  
+}
 
+.item-username {
+  color: rgb(0, 140, 255);
+  font-size: 0.75em;
+  padding-left: 1rem;
+}
+
+.item-date {
+  color: grey;
+  font-size: 0.2em;
+  padding-left: 1rem;
+
+}
+
+.item-message {
+  padding-left: 1rem;
+}
+
+.welcomeBanner {
+  text-align: right;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+  color: white;
+  padding: 0em;
+  display: inline;
+  
+  box-sizing: border-box;
+}
+
+.liked, .unliked {
+  padding-bottom: 0rem;
 }
