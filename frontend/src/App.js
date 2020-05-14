@@ -33,7 +33,7 @@ const App = () => {
             <Navbar.Collapse id="basic-navbar-nav">
 
             <Nav>
-            
+            {appUser && <div className="d-inline p-2 bg-dark text-white"> Hi, {appUser}</div>}
             <Link className="d-inline p-2 bg-dark text-white"
             to="/"> Home </Link>
             {appUser  && <Link className="d-inline p-2 bg-dark text-white"

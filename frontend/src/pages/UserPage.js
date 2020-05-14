@@ -51,9 +51,12 @@ const UserPage = ({appUser, setAppUser}) => {
   }
   // jsx
   return (
-    <div className="notes-container">
-      <h1 className="m-3 d-flex justify-content-left"> Welcome {appUser}</h1>
-      <Notes notes={notes} appUser={appUser} fetchNotes={fetchNotes} />
+    <div className="notes-container"> 
+      <div>
+        <div>
+          <Notes notes={notes} appUser={appUser} fetchNotes={fetchNotes} />
+        </div>
+      </div>
       <footer className="footer">
         <input 
         className="inputNote" 
