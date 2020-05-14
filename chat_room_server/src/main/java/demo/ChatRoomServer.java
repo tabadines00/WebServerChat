@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ChatRoomServer {
   public static void main(String[] args) {
-
+    port(1235);
     // open connection
     MongoClient mongoClient = DatabaseConnection.getInstance();
 
@@ -25,7 +25,8 @@ public class ChatRoomServer {
 
     // Gson
     Gson gson = new Gson();
-    port(1235);
+
+    webSocket("/chat", WebSocketHandler.class);
 
     post("/api/authenticate", (req, res) -> {
       String bodyString = req.body();

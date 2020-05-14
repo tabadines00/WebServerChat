@@ -3,10 +3,20 @@ import axios from 'axios'; // don't forget this
 import Notes from '../components/Notes';
 import { Redirect } from 'react-router-dom';
 
+const ws = new WebSocket("ws://localhost:1235/chat");
+
 const UserPage = ({appUser, setAppUser}) => {
   // pass in default value into useState
   const [note, setNote] = React.useState(''); // create a state variable + setter
   const [notes, setNotes] = React.useState([ ]); // if map of undefined
+
+  ws.onopen = () => {
+    console.log('WebSocket connected');
+  };
+  ws.onmessage = (stringMessage) => {
+    console.log('WebSocket message recieved: ' + stringMessage.data);
+    fetchNotes();
+  };
 
   const fetchNotes = () => {
     // utility to get all notes
@@ -37,6 +47,7 @@ const UserPage = ({appUser, setAppUser}) => {
   const keyPressed = (event) => {
     if (event.key === "Enter") {
       submitNote();
+      ws.send(note);
     }
   }
 
@@ -44,6 +55,14 @@ const UserPage = ({appUser, setAppUser}) => {
   React.useEffect(() => {
     // this will load notes when the page loads
     fetchNotes();
+   
+    ws.addEventListener("message",(stringMessage) => {
+      console.log('WebSocket message recieved: ' + stringMessage.data);
+      fetchNotes();
+    });
+    ws.addEventListener("close",() => {
+      console.log('WebSocket closed');
+    });
   }, []); // pass empty array
 
   if(!appUser){

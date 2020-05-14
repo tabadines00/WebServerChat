@@ -1,7 +1,7 @@
 import React from 'react';  //step 1
 import Message from './Message';
 
-const Notes = ({notes, appUser, fetchNotes}) => { // step 2 declare component
+const Notes = ({notes, appUser, fetchNotes }) => { // step 2 declare component
     //Notes specific logic in here
     return(
         <div className='container'>
