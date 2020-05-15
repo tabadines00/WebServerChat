@@ -26,4 +26,4 @@
 |4|login,logout, home				  	|Compelete the function of login, logout, home              |Thomas Abadines|10-May|
 |5|CSS (home/login/signup/userpage) |Use bootstrap to make the app clean and beautiful      |Gian Carlo L. Baldonado / Thomas Abadines|10-May|
 |6|amazon cloud							    |Can run on Amazon cloud                                    |Yongjian Pan|13-May|
-|7|Presentation							    |PowerPoint & Presentation                                  |?|14-May|
+|7|Presentation							    |PowerPoint & Presentation                                  |Gian Carlo L. Baldonado / Thomas Abadines|14-May|
