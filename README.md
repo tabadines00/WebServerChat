@@ -20,7 +20,7 @@
 
 |  #   |	   Task       |	       Details              | Person in charge | due date|
 |:----:|:--------------:|:---------------------------:|:----------------:|:-------:|
-|1|mongo db collection					|Link two MongoDB collections user and message              |Xinwei Fan |5-May|
+|1|mongo db collection					|Link two MongoDB collections user and message              |Xinwei Fan/Jingtao Zhang |5-May|
 |2|message								      |Each message should contain the date, text, and user.      |Xinwei Fan |6-May|
 |3|"like" button							  |Can click a message to “like” it (show the count of likes) |Thomas Abadines|9-May|
 |4|login,logout, home				  	|Compelete the function of login, logout, home              |Thomas Abadines|10-May|
