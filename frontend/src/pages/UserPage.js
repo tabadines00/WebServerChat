@@ -75,12 +75,13 @@ const UserPage = ({appUser, setAppUser}) => {
     <div className="notes-container"> 
     
       <div>
-        <div>
+        <div className="chats">
           <Notes notes={notes} appUser={appUser} fetchNotes={fetchNotes} />
         </div>
         <div>
           <p id="time"></p>
           <div >
+            <script src="./support.js" type="text/javascript"></script>
           </div>
           <Helmet>
                 <meta charSet="utf-8" />
@@ -97,6 +98,7 @@ const UserPage = ({appUser, setAppUser}) => {
       }\
       "}</style>
       <footer className="inputmsg">
+      {/* <input type="text" id="keyinput" onkeyup="searchChat()" placeholder="Search for chats.." /><br></br> */}
         <input 
         className="inputNote" 
         value={note} 
