@@ -104,6 +104,16 @@ public class ChatRoomServer {
       return "OK";
     });
 
+    post("/api/delete", (req, res) -> {
+      String bodyString =  req.body();
+      System.out.println("delete msg: req body: " + req.body());
+      DeleteDto deleteDto = gson.fromJson(bodyString, DeleteDto.class);
+
+      NotesDao notesDao = NotesDao.getInstance();
+      notesDao.delete(deleteDto.username, deleteDto.postId);
+      return "OK";
+    });
+
     post("/api/unlike", (req, res) -> {
       String bodyString =  req.body();
       System.out.println("unlike: req body: " + req.body());

@@ -82,6 +82,21 @@ public class NotesDao {
         notesCollection.updateOne(eq("postId", postId), Updates.pull("likes", name));
     }
 
+    public void delete(String name, int postId) {
+
+        // open connection
+        MongoClient mongoClient = DatabaseConnection.getInstance();
+        // connect data
+        MongoDatabase db = mongoClient.getDatabase("MyDatabase_0511");
+        MongoCollection<Document> notesCollection = db.getCollection("Notes");
+
+        // Find message if Id: post and append username to likes
+        System.out.println( name + " will delete post " + postId);
+
+        //notesCollection.updateOne(eq("postId", postId), Updates.pull("likes", name));
+        notesCollection.deleteOne(eq("postId", postId));
+    }
+
     public NotesListDto getAllNotes() {
 
         // open connection
