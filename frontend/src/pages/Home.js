@@ -12,8 +12,9 @@ const Home = ({appUser}) => {
       <h2>This is our chatting room</h2>
       <p>Connect with other like-minded Homebrewers around the world</p>
       <div>
-        {!appUser && <Link className="signup-button btnHover" to="/signup">Sign Up</Link>}
-        {appUser && <Link className="signup-button btnHover" to="/userpage">Chat Now</Link>}
+        {!appUser && <Link className=" btn btn-primary btnHover " to="/login">Log In</Link>}   
+        {!appUser && <Link className="btn btn-primary btnHover " to="/signup">Sign Up</Link>}
+        {appUser && <Link className="btn btn-primary btnHover btn btn-dark" to="/userpage">Chat Now</Link>}
       </div>
       <div className="bigLogo" />
     </div>

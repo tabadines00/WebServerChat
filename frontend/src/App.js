@@ -21,8 +21,8 @@ const App = () => {
               <Link to="/">
                 <img
                   src={Logo}
-                  width="35"
-                  height="35"
+                  width="40"
+                  height="40"
                   className="d-inline-block align-top"
                   alt="logo"
                 />
@@ -37,13 +37,13 @@ const App = () => {
             <Link className="d-inline p-2 bg-dark text-white"
             to="/"> Home </Link>
             {appUser  && <Link className="d-inline p-2 bg-dark text-white"
+            to="/userpage"> Chat room</Link>}
+            {appUser  && <Link className="d-inline p-2 mr-sm-2 bg-dark text-white "
             to="/logout"> Log out </Link>}
-            {!appUser && <Link className="d-inline p-2 bg-dark text-white"
+            {!appUser && <Link className="d-inline p-2 mr-sm-2 bg-dark text-white"
             to="/login"> Log in </Link>}
-            {!appUser && <Link className="d-inline p-2 bg-dark text-white"
+            {!appUser && <Link className="d-inline p-2 mr-sm-2 bg-dark text-white"
             to="/signup"> Sign up</Link>}
-            {appUser  && <Link className="d-inline p-2 bg-dark text-white"
-            to="/userpage"> User page</Link>}
             
             </Nav>
             </Navbar.Collapse>

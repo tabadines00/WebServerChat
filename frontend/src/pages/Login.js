@@ -8,7 +8,7 @@ const Login = ({appUser, setAppUser}) => {
   const[error, setError]       = React.useState('');
 
   var alphanumeric = /^[a-zA-Z0-9]*$/;
-  var alphaSpecial = /^([^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/; //finds invalid password and will negate it
+  //var alphaSpecial = /^([^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/; //finds invalid password and will negate it
   
  // body will send to axios 
   const handleAuth = () => {
@@ -76,7 +76,6 @@ const Login = ({appUser, setAppUser}) => {
           placeholder="Username"
           required autoFocus
           value={username}
-          onKeyPress={keyPressed}
           onChange = {e => setUsername(e.target.value)} 
         />
 

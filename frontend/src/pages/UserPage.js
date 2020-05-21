@@ -75,6 +75,13 @@ const UserPage = ({appUser, setAppUser}) => {
         <div>
           <Notes notes={notes} appUser={appUser} fetchNotes={fetchNotes} />
         </div>
+        <div>
+          <p id="time"></p>
+          <script>
+            var d = new Date();
+            document.getElementById("time").innerHTML = d;
+          </script>
+        </div>
       </div>
       <footer className="footer">
         <input 
