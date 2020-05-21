@@ -72,44 +72,36 @@ const Signup = ({appUser, setAppUser}) => {
  // disbled: input name and pass, then you can submit
   return (
     <div className="text-center">
+      <style>{"\
+        .signintext{\
+          margin: 1rem !important;\
+          font-weight: 400 !important;\
+        }\
+        .inputtab{\
+          position: absolute;\
+          width: 1px;\
+          height: 1px;\
+          padding: 0;\
+          margin: -1px;\
+          overflow: hidden;\
+          clip: rect(0, 0, 0, 0);\
+          white-space: nowrap;\
+          border: 0;\
+        }\
+      "}</style>
     <div className="form-signin">
-    <h1 className="h3 mb-3 font-weight-normal"> Please sign up</h1>
-      <label htmlFor="inputUsername" className="sr-only">Username</label>
-        <input
-          type="username"
-          id="inputUsername"
-          className="form-control"
-          placeholder="Username"
-          required autoFocus
-          value={username}
-          onKeyPress={keyPressed}
-          onChange = {e => setUsername(e.target.value)} 
-          />
-      <label htmlFor="inputPassword" className="sr-only">Password</label>
-        <input
-          type="password"
-          id="inputPassword"
-          className="form-control"
-          placeholder="Password"
-          required
-          value={password}
-          onKeyPress={keyPressed}
-          onChange = {e => setPassword(e.target.value)} 
-        />
-      
+    <h1 className="h3 signintext"> Please sign up</h1>
+      <label htmlFor="inputUsername" className="inputtab">Username</label>
+        <input type="text" id="inputUsername" className="form-control" placeholder="Username" required autoFocus
+          value={username} onChange = {e => setUsername(e.target.value)} />
 
-      <label htmlFor="inputPassword" className="sr-only">Confirm Password</label>
-        <input
-          type="password"
-          id="inputConfirmPassword"
-          className="form-control"
-          placeholder="Confirm Password"
-          required
-          value={confirmPass}
-          onKeyPress={keyPressed}
-          onChange = {e => setConfirmPass(e.target.value)} 
-        />
-        
+      <label htmlFor="inputPassword" className="inputtab">Password</label>
+        <input type="text" id="inputPassword" className="form-control" placeholder="Password" required
+          value={password} onChange = {e => setPassword(e.target.value)}/>
+
+      <label htmlFor="inputPassword" className="inputtab">Confirm Password</label>
+        <input type="password" id="inputConfirmPassword" className="form-control" placeholder="Confirm Password" required
+          value={confirmPass} onKeyPress={keyPressed} onChange = {e => setConfirmPass(e.target.value)} />   
 
       <button className={"btn btn-lg btn-primary btn-block " + buttonStyle()}
       type="Submit" 
