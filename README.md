@@ -25,6 +25,6 @@
 |3|"like" button							  |Can click a message to “like” it (show the count of likes) |Thomas Abadines|9-May|
 |4|login,logout, home				  	|Compelete the function of login, logout, home              |Thomas Abadines|10-May|
 |5|CSS (home/login/signup/userpage) |Use bootstrap to make the app clean and beautiful      |Gian Carlo L. Baldonado / Thomas Abadines|10-May|
-|6|mongodb singleton and amazon cloud							    |added singleton to mongodb and tried to establish connection to AWS EC2 but couldn't succeed. Link is:http://ec2-100-25-46-1.compute-1.amazonaws.com/                                   |Yongjian Pan|13-May|
+|6|mongodb singleton and amazon cloud							    |added singleton and lazy loading to mongodb and tried to establish connection to AWS EC2 but couldn't succeed. Link is:http://ec2-100-25-46-1.compute-1.amazonaws.com/                                   |Yongjian Pan|13-May|
 |7|Presentation							    |PowerPoint & Presentation                                  |Gian Carlo L. Baldonado / Thomas 
 |8|delete msg							    |delete msg                                   |Jingtao Zhang|21-May|
